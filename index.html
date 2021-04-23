@@ -43,7 +43,7 @@
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
                 <!-- <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
                     aria-label="Open navigation menu">menu</button> -->
-                <span class="mdc-top-app-bar__title">CTA Tracker</span>
+                <span class="mdc-top-app-bar__title">Gas Station Finder</span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
                 <button id="filterButton" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
@@ -94,7 +94,7 @@
     <script>
         let topAppBarElement = document.querySelector('.mdc-top-app-bar');
         // const topAppBar = new MDCTopAppBar(topAppBarElement);
-        let NavBarAnchors = document.querySelectorAll("ul#navbar a");
+        // let NavBarAnchors = document.querySelectorAll("ul#navbar a");
 
         // NavBarAnchors.forEach((anchor) => {
         //     anchor.addEventListener("click", (event) => {
@@ -131,6 +131,17 @@
             let map = document.querySelector("#map");
             map.style.display = "block";
         })
+
+
+
+        fetch('http://devapi.mygasfeed.com/locations/geoaddress/41.8781/-87.6298/rfej9napna.json')
+            .then(response => response.json())
+            .then(data => console.log(data));
+
+        // let url = "http://devapi.mygasfeed.com/locations/geoaddress/41.8781/-87.6298/rfej9napna.json";
+        // let data = fetch(url);
+
+        // console.log(data);
 
 
     </script>
