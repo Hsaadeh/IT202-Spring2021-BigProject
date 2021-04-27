@@ -21,7 +21,7 @@
         }
 
         #appbar {
-            background-color: darkblue;
+            background-color:rgb(9, 85, 9);
         }
 
         #button {
@@ -29,8 +29,11 @@
         }
 
         #filterScreen {
-            display: block;
+            display: none;
             width: 250px;
+        }
+        #weatherScreen {
+            display: block;
         }
     </style>
 </head>
@@ -43,7 +46,7 @@
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
                 <!-- <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
                     aria-label="Open navigation menu">menu</button> -->
-                <span class="mdc-top-app-bar__title">Gas Station Finder</span>
+                <span class="mdc-top-app-bar__title">Chicago Parks and Weather</span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
                 <button id="filterButton" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
@@ -56,8 +59,14 @@
         </div>
     </header>
     <main class="mdc-top-app-bar--fixed-adjust">
-        App content
+        
     </main>
+
+
+    <div id="weatherScreen">
+        <p>Weather Screen</p>
+    </div>
+
 
     <div id="filterScreen">
 
@@ -126,6 +135,10 @@
         let list_button = document.querySelector("#listButton");
         let map_button = document.querySelector("#mapButton");
 
+        filter_button.addEventListener("click", (event) => {
+            let filterScreen = document.querySelector("#filterScreen");
+            filterScreen.style.display = "block";
+        })
 
         map_button.addEventListener("click", (event) => {
             let map = document.querySelector("#map");
