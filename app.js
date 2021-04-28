@@ -1,28 +1,7 @@
+// top app bar instantiated
 let topAppBarElement = document.querySelector('.mdc-top-app-bar');
-// const topAppBar = new MDCTopAppBar(topAppBarElement);
 
-
-// let NavBarAnchors = document.querySelectorAll("ul#navbar a");
-
-// NavBarAnchors.forEach((anchor) => {
-//     anchor.addEventListener("click", (event) => {
-
-//         document.querySelectorAll(".screen").forEach((screen) => {
-//             screen.style.display = "none";
-//         });
-
-//         let screen = event.target.getAttribute("data-screen");
-//         let targetScreen = document.querySelector("#" + screen); //changed recently
-//         targetScreen.style.display = "block";
-//     });
-
-// })
-
-
-
-// let drawer = document.querySelector('.mdc-drawer');
-// list.wrapFocus = true;
-
+// map functionality //
 let map;
 
 function initMap() {
@@ -31,7 +10,6 @@ function initMap() {
         zoom: 8,
     });
 }
-
 
 // buttons initialized //
 let homeButton = document.querySelector("#homeButton");
@@ -75,3 +53,12 @@ mapButton.addEventListener("click", (event) => {
     mapScreen.style.display = "block";
 })
 
+// OpenWeather Api //
+// let weatherData_url = "";
+
+// City of Chicago Parks Api //
+// let parkData_url = "";
+
+// Geolocation data - get the users current location //
+
+// IndexDB requirement//
