@@ -16,24 +16,28 @@
     <!-- style for the app-->
     <style>
         #map {
-            display: none;
             height: 500px;
         }
 
         #appbar {
-            background-color:rgb(9, 85, 9);
+            background-color: rgb(9, 85, 9);
         }
 
         #button {
             background-color: white;
         }
 
+        #homeScreen {
+            display: none;
+        }
         #filterScreen {
             display: none;
-            width: 250px;
         }
-        #weatherScreen {
-            display: block;
+        #listScreen {
+            display: none;
+        }
+        #mapScreen {
+            display: none;
         }
     </style>
 </head>
@@ -49,6 +53,8 @@
                 <span class="mdc-top-app-bar__title">Chicago Parks and Weather</span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                <button id="homeButton" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="Home">home</button>
                 <button id="filterButton" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                     aria-label="Filter">filter_alt</button>
                 <button id="listButton" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
@@ -59,24 +65,24 @@
         </div>
     </header>
     <main class="mdc-top-app-bar--fixed-adjust">
-        
+
     </main>
 
 
-    <div id="weatherScreen">
-        <p>Weather Screen</p>
+    <div id="homeScreen" class="screen">
+        <p>home Screen</p>
     </div>
 
-
-    <div id="filterScreen">
-
+    
+    <div id="filterScreen" class="screen">
+        
         <label class="mdc-text-field mdc-text-field--filled">
             <span class="mdc-text-field__ripple"></span>
             <span class="mdc-floating-label" id="my-label-id">zip-code</span>
             <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
             <span class="mdc-line-ripple"></span>
         </label>
-
+        
         <div class="mdc-form-field">
             <div class="mdc-radio">
                 <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
@@ -88,81 +94,41 @@
             </div>
             <label for="radio-1">Radio 1</label>
         </div>
-
+        
     </div>
 
+    
+    <div id="listScreen" class="screen">
+        <p>list Screen</p>
+    </div>
 
-    <div class="screen" id="Map">
+    
+    <div id="mapScreen" class="screen">
         <div id="map"></div>
     </div>
+    
 
-
-
-
-    <!-- Javascript for the app-->
-    <script>
-        let topAppBarElement = document.querySelector('.mdc-top-app-bar');
-        // const topAppBar = new MDCTopAppBar(topAppBarElement);
-        // let NavBarAnchors = document.querySelectorAll("ul#navbar a");
-
-        // NavBarAnchors.forEach((anchor) => {
-        //     anchor.addEventListener("click", (event) => {
-
-        //         document.querySelectorAll(".screen").forEach((screen) => {
-        //             screen.style.display = "none";
-        //         });
-
-        //         let screen = event.target.getAttribute("data-screen");
-        //         let targetScreen = document.querySelector("#" + screen); //changed recently
-        //         targetScreen.style.display = "block";
-        //     });
-
-        // })
-
-        // let drawer = document.querySelector('.mdc-drawer');
-        // list.wrapFocus = true;
-
-        let map;
-
-        function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 41.8781, lng: -87.6298 },
-                zoom: 8,
-            });
-        }
-
-        let filter_button = document.querySelector("#filterButton");
-        let list_button = document.querySelector("#listButton");
-        let map_button = document.querySelector("#mapButton");
-
-        filter_button.addEventListener("click", (event) => {
-            let filterScreen = document.querySelector("#filterScreen");
-            filterScreen.style.display = "block";
-        })
-
-        map_button.addEventListener("click", (event) => {
-            let map = document.querySelector("#map");
-            map.style.display = "block";
-        })
-
-
-
-        fetch('http://devapi.mygasfeed.com/locations/geoaddress/41.8781/-87.6298/rfej9napna.json')
-            .then(response => response.json())
-            .then(data => console.log(data));
-
-        // let url = "http://devapi.mygasfeed.com/locations/geoaddress/41.8781/-87.6298/rfej9napna.json";
-        // let data = fetch(url);
-
-        // console.log(data);
-
-
-    </script>
+    <script src="app.js"></script>
 
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqmxNMC23J5khMF2JOuRDcxZylUhMw7iY&callback=initMap"
         async>
         </script>
+
+    <!-- <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script> -->
+
 </body>
 
 </html>
