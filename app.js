@@ -32,24 +32,21 @@ function initMap() {
     });
 }
 
-// let screens = document.querySelectorAll("#");
 
-
-
-// buttons //
+// buttons initialized //
 let homeButton = document.querySelector("#homeButton");
 let filterButton = document.querySelector("#filterButton");
 let listButton = document.querySelector("#listButton");
 let mapButton = document.querySelector("#mapButton");
 
-// screens //
+// screen variables initialized //
 let homeScreen = document.querySelector("#homeScreen");
 let filterScreen = document.querySelector("#filterScreen");
 let listScreen = document.querySelector("#listScreen");
 let mapScreen = document.querySelector("#mapScreen");
 
 
-// button event listeners //
+// button event listeners to display target screen //
 homeButton.addEventListener("click", (event) => {
     homeScreen.style.display = "block";
     filterScreen.style.display = "none";
