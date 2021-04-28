@@ -54,10 +54,20 @@ mapButton.addEventListener("click", (event) => {
 })
 
 // OpenWeather Api //
-// let weatherData_url = "";
+//let weatherEndpoint = "api.openweathermap.org"; // this needs the correct endpoint with the api key
+//let weatherData_url = weatherEndpoint;
 
 // City of Chicago Parks Api //
-// let parkData_url = "";
+let parkEndpoint = "https://data.cityofchicago.org/resource/eix4-gf83.json";
+let parkData_url = parkEndpoint;
+
+// let data = fetch(parkData_url);
+// console.log(data.json());
+
+// fetch(parkData_url)
+//         .then((response) => {
+//             console.log( response.json() );
+//         })
 
 // Geolocation data - get the users current location //
 
