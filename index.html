@@ -42,10 +42,17 @@
         #mapScreen {
             display: none;
         }
-        #menu{
+
+        #plotDiv {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        #menu {
             width: 175px;
             height: 75px;
-            padding-top: 10px;
+            padding-top: 25px;
+            padding-bottom: 5px;
         }
     </style>
 </head>
@@ -90,14 +97,30 @@
             <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
             <span class="mdc-line-ripple"></span>
         </label> -->
+        <div id="plotDiv">
+            <button id="plotAllButton" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Show Me All Parks on Map</span>
+            </button>
+        </div>
+
+        <div id="MyLocationDiv">
+            <button id="MyLocationButton" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Show Me On Map</span>
+            </button>
+        </div>
 
         <div id="parkDropdown">
             <div id="menu" class="mdc-select mdc-select--filled">
-                <select id="dropdown_park_options" name="dropdown_park_options" class="mdc-select mdc-select--filled"></select>
+                <select id="dropdown_park_options" name="dropdown_park_options"
+                    class="mdc-select mdc-select--filled"></select>
                 <label for="dropdown_park_options" class="mdc-floating-label">Select a Park</label>
-                <div class="mdc-line-ripple"></div>
+                <!-- <div class="mdc-line-ripple"></div> -->
             </div>
         </div>
+        <button id="filterParkButton" class="mdc-button mdc-button--raised">
+            <span class="mdc-button__label">Filter</span>
+        </button>
+
 
     </div>
 

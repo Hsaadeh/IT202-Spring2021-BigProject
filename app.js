@@ -16,6 +16,9 @@ let homeButton = document.querySelector("#homeButton");
 let filterButton = document.querySelector("#filterButton");
 let listButton = document.querySelector("#listButton");
 let mapButton = document.querySelector("#mapButton");
+let MyLocationButton = document.querySelector("#MyLocationButton");
+let plotAllButton = document.querySelector("#plotAllButton");
+let filterParkButton = document.querySelector("#filterParkButton");
 
 // screen variables initialized //
 let homeScreen = document.querySelector("#homeScreen");
@@ -53,6 +56,26 @@ mapButton.addEventListener("click", (event) => {
     mapScreen.style.display = "block";
 })
 
+filterParkButton.addEventListener("click", (event) => {
+    let parkEndpoint = "https://data.cityofchicago.org/resource/eix4-gf83.json";
+    let parkData_url = parkEndpoint;
+    let select = document.querySelector("#dropdown_park_options")
+    let park = select.options[select.selectedIndex].text;
+    //console.log(community);
+    new_url = parkData_url + "?park=" + park;
+    fetch(new_url)
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            // work with data
+            data.forEach((entry) => {
+                console.log(park);
+                // createCard(entry);
+            });
+        });
+})
+
 // OpenWeather Api //
 //let weatherEndpoint = "api.openweathermap.org"; // this needs the correct endpoint with the api key
 //let weatherData_url = weatherEndpoint;
@@ -74,12 +97,13 @@ parks.sort();
 //             // console.log( data.json() );
 //         })
 
+
+// creates a dropdown menu using park names
 fetch(parkData_url)
     .then((response) => {
         return response.json()
     })
     .then((data) => {
-        // work with data
 
         data.forEach((entry) => {
             if (!parks.includes(entry["park"])) {
@@ -97,7 +121,8 @@ fetch(parkData_url)
 
 console.log(parks);
 
-let menu = document.querySelector(".mdc-menu mdc-menu-surface");
+
+// let menu = document.querySelector(".mdc-menu mdc-menu-surface");
 
 // Geolocation data - get the users current location //
 
