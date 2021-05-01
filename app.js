@@ -60,14 +60,44 @@ mapButton.addEventListener("click", (event) => {
 // City of Chicago Parks Api //
 let parkEndpoint = "https://data.cityofchicago.org/resource/eix4-gf83.json";
 let parkData_url = parkEndpoint;
-
+let parks = [];
+parks.sort();
 // let data = fetch(parkData_url);
 // console.log(data.json());
 
 // fetch(parkData_url)
 //         .then((response) => {
-//             console.log( response.json() );
+//             let data = response.json();
+//             // let park = data[0];
+//             console.log(data);
+
+//             // console.log( data.json() );
 //         })
+
+fetch(parkData_url)
+    .then((response) => {
+        return response.json()
+    })
+    .then((data) => {
+        // work with data
+
+        data.forEach((entry) => {
+            if (!parks.includes(entry["park"])) {
+                parks.push(entry["park"]);
+            }
+        });
+        let dropdown_park_options_array = [];
+        dropdown_park_options_array.push("<option value='' id='park' selected></option>")
+        parks.forEach((element) => {
+            dropdown_park_options_array.push("<option value='' id='park'>" + element + "</option>");
+        });
+        document.getElementById("dropdown_park_options").innerHTML = dropdown_park_options_array.join();
+    });
+
+
+console.log(parks);
+
+let menu = document.querySelector(".mdc-menu mdc-menu-surface");
 
 // Geolocation data - get the users current location //
 

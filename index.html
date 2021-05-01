@@ -28,16 +28,24 @@
         }
 
         #homeScreen {
-            display: none;
+            display: block;
         }
+
         #filterScreen {
             display: none;
         }
+
         #listScreen {
             display: none;
         }
+
         #mapScreen {
             display: none;
+        }
+        #menu{
+            width: 175px;
+            height: 75px;
+            padding-top: 10px;
         }
     </style>
 </head>
@@ -73,40 +81,36 @@
         <p>home Screen</p>
     </div>
 
-    
+
     <div id="filterScreen" class="screen">
-        
-        <label class="mdc-text-field mdc-text-field--filled">
+
+        <!-- <label class="mdc-text-field mdc-text-field--filled">
             <span class="mdc-text-field__ripple"></span>
             <span class="mdc-floating-label" id="my-label-id">zip-code</span>
             <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
             <span class="mdc-line-ripple"></span>
-        </label>
-        
-        <!-- <div class="mdc-form-field">
-            <div class="mdc-radio">
-                <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
-                <div class="mdc-radio__background">
-                    <div class="mdc-radio__outer-circle"></div>
-                    <div class="mdc-radio__inner-circle"></div>
-                </div>
-                <div class="mdc-radio__ripple"></div>
+        </label> -->
+
+        <div id="parkDropdown">
+            <div id="menu" class="mdc-select mdc-select--filled">
+                <select id="dropdown_park_options" name="dropdown_park_options" class="mdc-select mdc-select--filled"></select>
+                <label for="dropdown_park_options" class="mdc-floating-label">Select a Park</label>
+                <div class="mdc-line-ripple"></div>
             </div>
-            <label for="radio-1">Radio 1</label>
-        </div> -->
-        
+        </div>
+
     </div>
 
-    
+
     <div id="listScreen" class="screen">
         <p>list Screen</p>
     </div>
 
-    
+
     <div id="mapScreen" class="screen">
         <div id="map"></div>
     </div>
-    
+
 
     <script src="app.js"></script>
 
