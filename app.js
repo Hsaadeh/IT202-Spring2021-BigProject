@@ -69,7 +69,6 @@ let newMarker = (coordinates) => {
     let mapMarker = new google.maps.Marker({
         position: coordinates,
         map: map,
-        // passive: true
         // title: title,
     })
 }
